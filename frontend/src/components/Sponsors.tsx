@@ -3,8 +3,11 @@
 import { Mail } from "lucide-react";
 import { ImageWithFallback } from "./misc/ImageWithFallback";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Sponsors() {
+  const { t } = useLanguage();
+
   const sponsorLevels = [
     {
       level: "Oro",
@@ -22,10 +25,9 @@ export function Sponsors() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="mb-4 text-3xl">Sponsors</h1>
+          <h1 className="mb-4 text-3xl">{t.sponsors.title}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Agradecemos el apoyo de nuestros sponsors que hacen
-            posible este congreso
+            {t.sponsors.description}
           </p>
         </motion.div>
 
@@ -80,12 +82,10 @@ export function Sponsors() {
           className="bg-gradient-to-r from-blue-900 to-blue-800 text-white rounded-lg shadow-lg p-12 text-center"
         >
           <h3 className="mb-4 text-white">
-            ¿Interesado en ser Sponsor?
+            {t.sponsors.ctaTitle}
           </h3>
           <p className="mb-6 text-blue-100 max-w-2xl mx-auto">
-            Únete a las empresas líderes que apoyan la
-            investigación y desarrollo en control automático y
-            automatización en Chile
+            {t.sponsors.ctaDesc}
           </p>
           <motion.a
             href="mailto:sponsors@ica-acca.cl"
@@ -94,7 +94,7 @@ export function Sponsors() {
             className="inline-flex items-center gap-2 bg-white text-blue-900 px-8 py-3 rounded-lg hover:bg-blue-50 transition-colors"
           >
             <Mail className="w-5 h-5" />
-            <span>Contáctanos</span>
+            <span>{t.sponsors.ctaButton}</span>
           </motion.a>
         </motion.div>
       </div>

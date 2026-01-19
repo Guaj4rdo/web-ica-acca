@@ -3,27 +3,30 @@
 import { FileText, Calendar, CheckCircle, Upload } from "lucide-react";
 import { ImageWithFallback } from "./misc/ImageWithFallback";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function PaperSubmission() {
+  const { t } = useLanguage();
+
   const timeline = [
     {
-      date: "Proximamente, 2026",
-      event: "Fecha límite Abstracts",
+      date: t.paperSubmission.timeline.comingSoon,
+      event: t.paperSubmission.timeline.abstracts,
       icon: FileText,
     },
     {
-      date: "Proximamente, 2026",
-      event: "Notificación de aceptación",
+      date: t.paperSubmission.timeline.comingSoon,
+      event: t.paperSubmission.timeline.notification,
       icon: CheckCircle,
     },
     {
-      date: "Proximamente, 2026",
-      event: "Fecha límite papers completos",
+      date: t.paperSubmission.timeline.comingSoon,
+      event: t.paperSubmission.timeline.fullPapers,
       icon: Upload,
     },
     {
       date: "9-11 de Diciembre, 2026",
-      event: "Congreso ICA-ACCA",
+      event: t.paperSubmission.timeline.congress,
       icon: Calendar,
     }
   ];
@@ -46,9 +49,9 @@ export function PaperSubmission() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="mb-4 text-3xl">Envío de Papers</h1>
+          <h1 className="mb-4 text-3xl">{t.paperSubmission.title}</h1>
           <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-            Invitamos a investigadores y profesionales a enviar sus trabajos para ser parte del congreso
+            {t.paperSubmission.description}
           </p>
         </motion.div>
 
@@ -60,8 +63,8 @@ export function PaperSubmission() {
             transition={{ duration: 0.6 }}
           >
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1600320261634-78edd477fa1e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb25mZXJlbmNlJTIwc3BlYWtlcnN8ZW58MXx8fHwxNzYzNzQ4ODg3fDA&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Conferencia"
+              src="https://cdn.discordapp.com/attachments/1028076474512703488/1462686642509709415/DSC00553.JPG?ex=696f1896&is=696dc716&hm=faf8db92d7027c2b4e4094710f7ab53dd17d6e6fa70f1153e065ae4bfdd1fece&"
+              alt={t.paperSubmission.imageAlt}
               className="rounded-lg shadow-2xl w-full h-full object-cover min-h-80 border border-slate-700"
             />
           </motion.div>
@@ -73,15 +76,9 @@ export function PaperSubmission() {
             transition={{ duration: 0.6 }}
             className="flex flex-col justify-center"
           >
-            <h3 className="mb-6 text-white">Directrices de Envío</h3>
+            <h3 className="mb-6 text-white">{t.paperSubmission.guidelinesTitle}</h3>
             <ul className="space-y-4">
-              {[
-                "Formato IEEE (6-8 páginas para paper completo)",
-                "Resúmenes de 300-500 palabras",
-                "Idiomas: Español o Inglés",
-                "Revisión por pares doble ciego",
-                "Publicación en revistas indexadas"
-              ].map((item, index) => (
+              {t.paperSubmission.guidelines.map((item, index) => (
                 <motion.li
                   key={index}
                   initial={{ opacity: 0, x: -20 }}
@@ -110,7 +107,7 @@ export function PaperSubmission() {
                 <span>Enviar Paper</span>
               </button> */}
               <p className="mt-3 text-sm text-slate-400">
-                Sistema de envío disponible próximamente
+                {t.paperSubmission.systemComingSoon}
               </p>
             </motion.div>
           </motion.div>
@@ -123,7 +120,7 @@ export function PaperSubmission() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h3 className="mb-10 text-center text-white">Fechas Importantes</h3>
+          <h3 className="mb-10 text-center text-white">{t.paperSubmission.importantDates}</h3>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {timeline.map((item, index) => {
               const Icon = item.icon;

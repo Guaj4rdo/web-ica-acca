@@ -9,6 +9,8 @@ export const metadata: Metadata = {
     description: "Congreso Internacional de Computación y Automática",
 };
 
+import { Providers } from "../components/Providers";
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -16,7 +18,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="es">
-            <body className={inter.className}>{children}</body>
+            <body className={inter.className}>
+                <Providers>{children}</Providers>
+            </body>
         </html>
     );
 }

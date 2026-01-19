@@ -3,28 +3,31 @@
 import { ImageWithFallback } from "./misc/ImageWithFallback";
 import { Cpu, Users, BookOpen, Award } from "lucide-react";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function About() {
+  const { t } = useLanguage();
+
   const features = [
     {
       icon: Cpu,
-      title: "Tecnología de Vanguardia",
-      description: "Investigación de punta en control automático y sistemas autónomos"
+      title: t.about.features.tech.title,
+      description: t.about.features.tech.desc
     },
     {
       icon: Users,
-      title: "Networking Internacional",
-      description: "Conecta con expertos y profesionales de toda Latinoamérica"
+      title: t.about.features.networking.title,
+      description: t.about.features.networking.desc
     },
     {
       icon: BookOpen,
-      title: "Publicaciones Indexadas",
-      description: "Papers seleccionados serán publicados en revistas indexadas"
+      title: t.about.features.publications.title,
+      description: t.about.features.publications.desc
     },
     {
       icon: Award,
-      title: "Reconocimiento Académico",
-      description: "Certificación oficial y reconocimiento a mejores trabajos"
+      title: t.about.features.recognition.title,
+      description: t.about.features.recognition.desc
     }
   ];
 
@@ -38,10 +41,9 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="mb-4 text-3xl">Sobre el Congreso</h1>
+          <h1 className="mb-4 text-3xl">{t.about.title}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            El ICA-ACCA es el congreso de referencia en Chile para el control automático y la automatización,
-            reuniendo a investigadores, académicos e industria para compartir avances y tendencias.
+            {t.about.description}
           </p>
         </motion.div>
 
@@ -53,8 +55,8 @@ export function About() {
             transition={{ duration: 0.6 }}
           >
             <ImageWithFallback
-              src="https://images.unsplash.com/photo-1761195696590-3490ea770aa1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxhdXRvbWF0aW9uJTIwdGVjaG5vbG9neSUyMHJvYm90aWNzfGVufDF8fHx8MTc2Mzc0ODg4Nnww&ixlib=rb-4.1.0&q=80&w=1080"
-              alt="Automatización y tecnología"
+              src="https://noticias.ubiobio.cl/wp-content/uploads//2025/07/DSC02295.jpg"
+              alt={t.about.imageAlt}
               className="rounded-xl shadow-lg w-full h-96 object-cover"
             />
           </motion.div>
@@ -64,21 +66,15 @@ export function About() {
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.6 }}
           >
-            <h3 className="mb-4">¿Qué es ICA-ACCA?</h3>
+            <h3 className="mb-4">{t.about.whatIsTitle}</h3>
             <p className="text-gray-700 mb-4">
-              El Congreso Internacional de Control Automático y Automatización (ICA-ACCA) es un evento
-              de alto nivel que se realiza anualmente o bianualmente en Chile, organizado en colaboración
-              con las principales universidades e instituciones del país.
+              {t.about.p1}
             </p>
             <p className="text-gray-700 mb-4">
-              Durante tres días intensivos, participantes de todo el continente presentan investigaciones
-              innovadoras, asisten a conferencias magistrales y participan en talleres especializados
-              en áreas como robótica, sistemas de control, inteligencia artificial aplicada, y automatización
-              industrial.
+              {t.about.p2}
             </p>
             <p className="text-gray-700">
-              El congreso también sirve como plataforma para establecer colaboraciones entre academia e
-              industria, promoviendo la transferencia tecnológica y el desarrollo de soluciones aplicadas.
+              {t.about.p3}
             </p>
           </motion.div>
         </div>

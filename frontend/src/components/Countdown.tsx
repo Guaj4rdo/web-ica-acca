@@ -3,8 +3,10 @@
 import { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { Calendar } from "lucide-react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Countdown() {
+  const { t } = useLanguage();
   const [timeLeft, setTimeLeft] = useState({
     days: 0,
     hours: 0,
@@ -37,10 +39,10 @@ export function Countdown() {
   }, []);
 
   const timeBlocks = [
-    { label: "Días", value: timeLeft.days },
-    { label: "Horas", value: timeLeft.hours },
-    { label: "Minutos", value: timeLeft.minutes },
-    { label: "Segundos", value: timeLeft.seconds }
+    { label: t.countdown.days, value: timeLeft.days },
+    { label: t.countdown.hours, value: timeLeft.hours },
+    { label: t.countdown.minutes, value: timeLeft.minutes },
+    { label: t.countdown.seconds, value: timeLeft.seconds }
   ];
 
   return (
@@ -56,7 +58,7 @@ export function Countdown() {
           >
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full mb-8">
               <Calendar className="w-5 h-5 text-white" />
-              <span className="text-white text-sm">Cuenta Regresiva</span>
+              <span className="text-white text-sm">{t.countdown.title}</span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 max-w-3xl mx-auto">

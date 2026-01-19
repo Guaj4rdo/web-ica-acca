@@ -3,60 +3,60 @@
 import { Mail, Building2 } from "lucide-react";
 import { motion } from "motion/react";
 import { ImageWithFallback } from "./misc/ImageWithFallback";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Committee() {
+  const { t } = useLanguage();
+
   const committeeMembers = [
     {
       name: "Jaime Rohten Carrasco",
-      role: "Director del Departamento Ingeniería Eléctrica y Electrónica",
+      role: t.committee.roles.director,
       institution: "Universidad del Bío Bío",
       email: "jrohten@ubiobio.cl",
       image: "https://fi.ubiobio.cl/wp-content/uploads/2023/05/jaime-rohten-scaled-e1684873906646.jpg",
     },
     {
       name: "José Silva Cortés",
-      role: "Académico",
+      role: t.committee.roles.academic,
       institution: "Universidad del Bío Bío",
       email: "jsilva@ubiobio.cl",
       image: "https://fi.ubiobio.cl/wp-content/uploads/2025/01/dsc0493-scaled-e1736424466176.jpg",
-      // image: "/images/committee/placeholder.jpg",
     },
     {
       name: "Christopher Flores Jara",
-      role: "Académico",
+      role: t.committee.roles.academic,
       institution: "Universidad del Bío Bío",
       email: "cfloresj@ubiobio.cl",
       image: "https://fi.ubiobio.cl/wp-content/uploads/2025/01/dsc0224-scaled-e1736424338514.jpg",
-      // image: "/images/committee/placeholder.jpg",
     },
     {
       name: "Cristian Durán",
-      role: "Académico",
+      role: t.committee.roles.academic,
       institution: "Universidad del Bío Bío",
       email: "cduran@ubiobio.cl",
       image: "https://fi.ubiobio.cl/wp-content/uploads/2023/05/cristian-duran-scaled-e1684873722437.jpg",
-      // image: "/images/committee/placeholder.jpg",
     },
   ];
 
   const referenceMembers = [
     {
       name: "Nombre Apellido",
-      role: "Rol del Organizador",
+      role: t.committee.roles.organizer,
       institution: "Institución",
       email: "email@ejemplo.com",
       image: "",
     },
     {
       name: "Nombre Apellido",
-      role: "Rol del Organizador",
+      role: t.committee.roles.organizer,
       institution: "Institución",
       email: "email@ejemplo.com",
       image: "",
     },
     {
       name: "Nombre Apellido",
-      role: "Rol del Organizador",
+      role: t.committee.roles.organizer,
       institution: "Institución",
       email: "email@ejemplo.com",
       image: "",
@@ -73,12 +73,9 @@ export function Committee() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="mb-4 text-3xl">Comité Organizador Universidad del Bío Bío</h1>
+          <h1 className="mb-4 text-3xl">{t.committee.ubTitle}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Nuestro comité está conformado por destacados
-            académicos del departamento de Ingeniería
-            Eléctrica y Electrónica de la
-            Universidad del Bío Bío.
+            {t.committee.ubDesc}
           </p>
         </motion.div>
         {/* IEEE, ICA-ACCA E IFAC*/}
@@ -144,7 +141,7 @@ export function Committee() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16 mt-20"
         >
-          <h1 className="mb-4 text-3xl">Comité IEEE, ICA-ACCA E IFAC</h1>
+          <h1 className="mb-4 text-3xl">{t.committee.refTitle}</h1>
         </motion.div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">

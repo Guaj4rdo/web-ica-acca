@@ -4,8 +4,11 @@ import * as React from "react";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 
+import { useLanguage } from "../context/LanguageContext";
+
 export function Hero() {
   const [dots, setDots] = React.useState<Array<{ left: number; top: number; duration: number; delay: number }>>([]);
+  const { t } = useLanguage();
 
   React.useEffect(() => {
     setDots(
@@ -75,7 +78,7 @@ export function Hero() {
             className="inline-block bg-blue-600/20 backdrop-blur-sm border border-blue-500/30 px-5 py-2 rounded-full mb-8"
           >
             <span className="text-sm text-blue-200">
-              Edición 2026 • Universidad del Bío-bío
+              {t.hero.edition}
             </span>
           </motion.div>
 
@@ -104,10 +107,10 @@ export function Hero() {
             className="mb-8"
           >
             <p className="text-xl sm:text-2xl mb-2 text-slate-300">
-              Congreso Internacional de
+              {t.hero.subtitle1}
             </p>
             <p className="text-2xl sm:text-3xl text-blue-300">
-              Control Automático y Automatización
+              {t.hero.subtitle2}
             </p>
           </motion.div>
 
@@ -119,11 +122,11 @@ export function Hero() {
           >
             <div className="flex items-center gap-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700 px-6 py-3 rounded-lg">
               <Calendar className="w-5 h-5 text-blue-400" />
-              <span>9-11 de Diciembre, 2026</span>
+              <span>{t.hero.date}</span>
             </div>
             <div className="flex items-center gap-3 bg-slate-800/50 backdrop-blur-sm border border-slate-700 px-6 py-3 rounded-lg">
               <MapPin className="w-5 h-5 text-blue-400" />
-              <span>Concepción, Chile</span>
+              <span>{t.hero.location}</span>
             </div>
           </motion.div>
 
@@ -137,14 +140,14 @@ export function Hero() {
               href="#paper-submission"
               className="group bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-colors inline-flex items-center gap-2 justify-center"
             >
-              <span>Enviar Paper</span>
+              <span>{t.hero.callForPapers}</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
             <a
               href="#about"
               className="border-2 border-white hover:border-blue-500 text-white px-8 py-4 rounded-lg hover:bg-slate-800/50 transition-all"
             >
-              Más Información
+              {t.hero.moreInfo}
             </a>
           </motion.div>
         </motion.div>

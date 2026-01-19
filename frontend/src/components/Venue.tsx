@@ -11,40 +11,35 @@ import {
   CloudSun,
 } from "lucide-react";
 import { motion } from "motion/react";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Venue() {
+  const { t } = useLanguage();
+
   const ubbStats = [
-    { icon: Users, label: "Estudiantes", value: "12,000+" },
-    { icon: Building, label: "Carreras", value: "50+" },
-    { icon: Award, label: "Acreditación", value: "5 años" },
-    { icon: MapPin, label: "Campus", value: "2 ciudades" },
+    { icon: Users, label: t.venue.ubb.stats.students.label, value: t.venue.ubb.stats.students.value },
+    { icon: Building, label: t.venue.ubb.stats.careers.label, value: t.venue.ubb.stats.careers.value },
+    { icon: Award, label: t.venue.ubb.stats.accreditation.label, value: t.venue.ubb.stats.accreditation.value },
+    { icon: MapPin, label: t.venue.ubb.stats.campus.label, value: t.venue.ubb.stats.campus.value },
   ];
 
-  const cityFeatures = [
-    "Población metropolitana: 1,000,000+ habitantes",
-    "Aeropuerto Internacional Carriel Sur a 15 km del centro",
-    "Hub universitario con más de 10 universidades",
-    "Rica oferta gastronómica, hotelera y cultural",
-  ];
+  const cityFeatures = t.venue.city.features;
 
   const practicalInfo = [
     {
       icon: Plane,
-      title: "Cómo Llegar",
-      description:
-        "Vuelos directos desde Santiago (1 hora) y principales ciudades.",
+      title: t.venue.practical.arrival.title,
+      description: t.venue.practical.arrival.desc,
     },
     {
       icon: Hotel,
-      title: "Alojamiento",
-      description:
-        "Hoteles cercanos al campus. Información detallada próximamente.",
+      title: t.venue.practical.accommodation.title,
+      description: t.venue.practical.accommodation.desc,
     },
     {
       icon: CloudSun,
-      title: "Clima en diciembre",
-      description:
-        "Primavera con temperaturas entre 10-22°C. Se recomienda ropa abrigada para las mañanas.",
+      title: t.venue.practical.weather.title,
+      description: t.venue.practical.weather.desc,
     },
   ];
 
@@ -58,10 +53,9 @@ export function Venue() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h1 className="mb-4 text-3xl">Sede del Congreso</h1>
+          <h1 className="mb-4 text-3xl">{t.venue.title}</h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            El ICA-ACCA 2026 se realizará en la Universidad del
-            Bío-Bío, Concepción
+            {t.venue.description}
           </p>
         </motion.div>
 
@@ -76,23 +70,13 @@ export function Venue() {
           <div className="grid md:grid-cols-2 gap-8">
             <div className="p-8 md:p-12">
               <h1 className="mb-6 text-2xl text-blue-900">
-                Universidad del Bío-Bío
+                {t.venue.ubb.title}
               </h1>
               <p className="text-gray-700 mb-6">
-                La Universidad del Bío-Bío (UBB) es una
-                institución estatal de educación superior con
-                sede en Concepción y Chillán. Fundada en 1988,
-                la UBB se ha consolidado como un referente en
-                ingeniería y tecnología en la región del
-                Bío-Bío.
+                {t.venue.ubb.p1}
               </p>
               <p className="text-gray-700 mb-6">
-                La Facultad de Ingeniería destaca por su
-                excelencia en investigación aplicada,
-                especialmente en áreas de automatización,
-                control de procesos y sistemas inteligentes,
-                convirtiéndola en la sede ideal para el
-                ICA-ACCA.
+                {t.venue.ubb.p2}
               </p>
 
               <div className="grid grid-cols-2 gap-4 mb-6">
@@ -134,7 +118,7 @@ export function Venue() {
             </div>
             <div className="h-64 md:h-auto">
               <ImageWithFallback
-                src="https://doctoradoia.cl/wp-content/uploads/2023/09/UBB.jpg"
+                src="https://fi.ubiobio.cl/wp-content/uploads/2026/01/dsc_9740.jpg"
                 alt="Campus Universidad del Bío-Bío"
                 className="w-full h-full object-cover"
               />
@@ -160,21 +144,13 @@ export function Venue() {
             </div>
             <div className="order-1 md:order-2 p-8 md:p-12">
               <h1 className="mb-6 text-2xl text-blue-900">
-                Concepción, Chile
+                {t.venue.city.title}
               </h1>
               <p className="text-gray-700 mb-4">
-                Concepción, conocida como la &quot;Capital del Sur&quot;,
-                es la segunda área metropolitana más importante
-                de Chile. Ubicada en la región del Bío-Bío, es
-                un importante centro universitario, cultural e
-                industrial del país.
+                {t.venue.city.p1}
               </p>
               <p className="text-gray-700 mb-4">
-                La ciudad cuenta con excelente conectividad,
-                modernas instalaciones y una vibrante vida
-                cultural. Su clima mediterráneo y cercanía al
-                océano Pacífico la hacen un destino atractivo
-                durante todo el año.
+                {t.venue.city.p2}
               </p>
               <div className="space-y-3">
                 {cityFeatures.map((feature, index) => (
