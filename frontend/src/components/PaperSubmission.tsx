@@ -63,7 +63,7 @@ export function PaperSubmission() {
             transition={{ duration: 0.6 }}
           >
             <ImageWithFallback
-              src="https://drive.google.com/uc?id=1b3DsTgVo_f4tSznkzCIWg0wf2HoGo45v"
+              src="/paper-image.jpg"
               alt={t.paperSubmission.imageAlt}
               className="rounded-lg shadow-2xl w-full h-full object-cover min-h-80 border border-slate-700"
             />
