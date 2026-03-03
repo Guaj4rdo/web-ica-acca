@@ -63,7 +63,7 @@ export function PaperSubmission() {
             transition={{ duration: 0.6 }}
           >
             <ImageWithFallback
-              src="https://cdn.discordapp.com/attachments/1028076474512703488/1462686642509709415/DSC00553.JPG?ex=696f1896&is=696dc716&hm=faf8db92d7027c2b4e4094710f7ab53dd17d6e6fa70f1153e065ae4bfdd1fece&"
+              src="https://drive.google.com/uc?id=1b3DsTgVo_f4tSznkzCIWg0wf2HoGo45v"
               alt={t.paperSubmission.imageAlt}
               className="rounded-lg shadow-2xl w-full h-full object-cover min-h-80 border border-slate-700"
             />
